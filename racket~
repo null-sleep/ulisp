@@ -1,0 +1,9 @@
+#lang racket
+(define x 10)
+(define (func a b)
+  (+ a b))
+
+(define (func2 a b)
+  (local
+    [define c 10]
+    (+ a b c)))

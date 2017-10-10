@@ -3,18 +3,9 @@ import sys
 import logging
 import readline as rl
 
+PROMPT = "ulisp> "
 
-logging.basicConfig(stream=sys.stdout)
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-prompt = "ulisp> "
 history_loaded = False
-
-if sys.version_info[0] >= 3:
-    input = input
-else:
-    input = raw_input
 
 def readline():
     global prompt
@@ -27,15 +18,16 @@ def readline():
                 for hist_line in hf.readlines():
                     rl.add_history(hist_line.rstrip("\r\n"))
         except IOError:
-            logger.info("No history file found.")
+            print("No history file found. Creating at {}".format(history_file))
     try:
-        line = input(prompt)
+        line = input(PROMPT)
         rl.add_history(line)
         with open(history_file, "a") as hf:
             hf.write(line + '\n')
     except IOError:
         pass
     except EOFError:
+        # Ctrl + D handler
         return None
     return line
 
