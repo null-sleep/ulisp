@@ -74,10 +74,10 @@ ns ={
 
     # Hash
     'hash?': lambda x: type(x) == Hash,
-    'get': lambda hashmap, index: hashmap[index],
-    'keys': lambda hashmap: List(hashmap.keys),
-    'vals': lambda hashmap: List(hashmap.values),
-    'contains?': lambda hashmap, index: lambda hashmap, index: True if hashmap.get(index) else False,
+    'get': lambda hashmap, index: hashmap.get(index),
+    'keys': lambda hashmap: List(hashmap.keys()),
+    'vals': lambda hashmap: List(hashmap.values()),
+    'contains?': lambda hashmap, index: True if hashmap.get(index) else False,
     
     # Math
     'integer?': lambda x: type(x) == int,
@@ -121,6 +121,7 @@ ns ={
     'number->string': lambda x: String(x), 
     'string->number': lambda x: float(x) if '.' in x else int(x),
     'pi': 3.141592653589793,
+    'shopify': "Get Shit Done!",
 
 
 }

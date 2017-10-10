@@ -34,9 +34,9 @@ def eval_ast(ast, env):
     if type(ast) == utypes.Hash:
         # Key is enforced to be String during creation
         key_val_list = utypes.List()
-        for key, value in ast.keys():
+        for key in ast.keys():
             key_val_list.append(evaluate(key, env))
-            key_val_list.append(evaluate(value, env))
+            key_val_list.append(evaluate(ast[key], env))
         return utypes._make_hash(key_val_list)
     # Return primitive type
     else:

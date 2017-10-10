@@ -24,7 +24,7 @@ def _make_hash(key_value_pair_list):
     # Resolves list of key-value pairs into a dictionary
     hash_map = Hash()
     for i in range(0, len(key_value_pair_list), 2):
-        if type(key_value_pair_list[i]) in [String, Symbol]:
+        if type(key_value_pair_list[i]) in [String, Symbol, str]:
             hash_map[key_value_pair_list[i]] = key_value_pair_list[i+1]
         else:
             raise Exception('Invalid key: {} provided'.format(key_value_pair_list[i]))

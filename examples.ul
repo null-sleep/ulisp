@@ -1,0 +1,20 @@
+https://github.com/Dhruv-Jauhar/ulisp.git
+
+(define fib (lambda (N) (if (= N 0) 1 (if (= N 1) 1 (+ (fib (- N 1)) (fib (- N 2)))))))
+
+(define x 10)
+(sin 3.14)
+(sin pi)
+(round (sin 3.14))
+(define a (+ 1 2 (/ (- 9 5) 4)))
+(float? a)
+
+(define hm {"key1" "value1" "abcd" 1234 "var a": a})
+(get hm "abcd")
+(keys hm)
+(contains? hm "abcd")
+
+(define lst (list 1 2 3))
+(map (lambda (a) (+ 1 a)) lst)
+(nth lst 2)
+
